@@ -14,12 +14,19 @@ app = Flask(__name__)
 
 credentials = Credentials(
                    url = "https://eu-de.ml.cloud.ibm.com",
-                   api_key = "7EefwRpvgD08gcf4qBlyxctDeyS7yEHOFahi5m_O6cFc" # Normally you'd put an API key here, but we've got you covered here
+                   api_key = "" # Normally you'd put an API key here, but we've got you covered here
                   )
 client = APIClient(credentials)
+
 model_id = "meta-llama/llama-4-maverick-17b-128e-instruct-fp8"
-project_id = "49b6e9f3-5f00-480a-a457-21cf3aeff047"
+
+project_id = "####"
+
 params = TextChatParameters()
+params = { 
+    "temperature": 0.7,
+    "max_tokens": 800
+}
 
 model = ModelInference(
     model_id=model_id,
